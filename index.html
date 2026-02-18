@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>두근두근타운 작물 타이머</title>
+  <link rel="stylesheet" href="./styles.css" /> 
+</head>
+<body>
+  <main class="app">
+
+ 
+
+    <!-- LEFT -->
+    <section class="panel panel-left">
+      <header class="panel-head head-row">
+        <h1 class="panel-title">두근두근타운 작물 타이머</h1>
+
+        <button class="iconBtn" id="themeToggle" title="다크모드 토글" aria-label="다크모드 토글">
+          <span class="iconDot"></span>
+          <span class="iconText" id="themeText">라이트</span>
+        </button>
+      </header>
+
+      <p class="panel-sub">※ 사용자 추가 씨앗은 카드 우측 상단 <b>X</b>로 삭제 가능</p>
+
+      <div class="cropGrid" id="cropGrid"></div>
+
+      <div class="actions">
+        <button class="btn btn-primary" id="plantBtn">심기 완료</button>
+        <button class="btn btn-ghost" id="permBtn">브라우저 알림 권한</button>
+
+      </div>
+
+      <footer class="credit">
+        자유롭게 사용하셔도 되지만, 수정 후 재배포 시 출처 표기를 부탁드립니다.
+      </footer>
+      <footer class="credit">
+        DTW Timer · by Yuri
+      </footer>
+
+    </section>
+
+    <!-- RIGHT -->
+    <section class="panel panel-right">
+      <header class="panel-head head-row">
+        <div>
+          <h2 class="panel-title2">타이머 목록</h2>
+          <p class="panel-sub">생성된 타이머가 여기서 카운트다운 돼.</p>
+        </div>
+
+        <button class="btn btn-ghost btn-small" id="openAddTimer">타이머 추가</button>
+      </header>
+
+      <div class="timerList" id="timerList"></div>
+
+      <div class="actions actions-slim">
+        <button class="btn btn-ghost" id="removeDoneBtn">완료 타이머 삭제</button>
+        <button class="btn btn-ghost danger-outline" id="removeAllBtn">전체 삭제</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 타이머 추가 -->
+  <div class="modal" id="addTimerModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close="1"></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="addTimerTitle">
+      <div class="modal-head">
+        <h3 id="addTimerTitle">타이머 추가</h3>
+        <button class="iconX" data-close="1" aria-label="닫기">×</button>
+      </div>
+
+      <div class="modal-body">
+        <label class="field">
+          <span class="label">이름</span>
+          <input id="customName" placeholder="예: 🍯 꿀 씨앗" />
+        </label>
+
+        <div class="row2">
+          <label class="field">
+            <span class="label">시간</span>
+            <input id="customHours" type="number" min="0" value="0" />
+          </label>
+          <label class="field">
+            <span class="label">분</span>
+            <input id="customMins" type="number" min="0" value="0" />
+          </label>
+          <label class="field">
+            <span class="label">초</span>
+            <input id="customSecs" type="number" min="0" value="30" />
+          </label>
+        </div>
+
+        <p class="hint">
+          ※ “추가”를 누르면 왼쪽 씨앗 목록에 저장되고, 동시에 타이머도 생성돼.
+        </p>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-ghost" data-close="1">취소</button>
+        <button class="btn btn-primary" id="createCustomTimer">추가</button>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="./app.js"></script>
+</body>
+</html>
